@@ -37,8 +37,23 @@ const PickForm = () => {
       onSubmit={handleSubmit}
     >
       {() => (
-        <Form className='space-y-4'>
-            
+        <Form>
+          <div className='flex flex-col gap-4'>
+
+          <div className='flex flex-row gap-8 border-2 border-gray-300 p-4 rounded-lg'>
+          <div className='flex flex-col w-340px'>
+            <h2 className='text-xl font-bold'>Pick up From</h2>
+            <div className='flex flex-col gap-2'>
+            <FormField
+              id="startingCompany"
+              name="startingCompany"
+              type="text"
+              label="Company Name"
+              placeholder="Enter company name"
+              disabled={false}
+              onChange={ Formik.handleChange }
+            />
+
             <FormField
               id="startingAddress"
               name="startingAddress"
@@ -48,19 +63,37 @@ const PickForm = () => {
               disabled={false}
               onChange={ Formik.handleChange }
             />
-        
+            </div>
+        </div>
 
-        <FormField
-              id="endingAddress"
-              name="endingAddress"
-              type="text"
-              label="Ending Address"
-              placeholder="Enter ending address"
-              disabled={false}
-              onChange={ Formik.handleChange }
-            />
-
+        <div className='flex flex-col'>
+        <h2 className='text-xl font-bold'>Deliver To</h2>
+          <div className='flex flex-col gap-2'>
+            
             <FormField
+                  id="endingCompany"
+                  name="endingCompany"
+                  type="text"
+                  label="Company Name"
+                  placeholder="Enter company name"
+                  disabled={false}
+                  onChange={ Formik.handleChange }
+                />
+
+
+              <FormField
+                    id="endingAddress"
+                    name="endingAddress"
+                    type="text"
+                    label="Ending Address"
+                    placeholder="Enter ending address"
+                    disabled={false}
+                    onChange={ Formik.handleChange }
+                  />
+                  </div>
+        </div>
+        </div>
+            {/* <FormField
               id="pickupDate"
               name="pickupDate"
               type="date"
@@ -88,9 +121,9 @@ const PickForm = () => {
               placeholder="Enter Contact Information"
               disabled={false}
               onChange={() => {}}
-            />
+            /> */}
 
-          <FormButton 
+          {/* <FormButton 
             text="Submit"
             isSubmittingText="Submitting..."
             buttonClass="bg-blue-500 text-white px-4 py-2 rounded"
@@ -99,7 +132,8 @@ const PickForm = () => {
             isSubmitting={false}
             onClick={() => {}}
             type="submit"
-          />
+          /> */}
+          </div>
         </Form>
       )}
     </Formik>
